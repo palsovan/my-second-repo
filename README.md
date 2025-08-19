@@ -1,44 +1,52 @@
-# JSON Parser Project
+# Calculator App with JSON Parser
 
-This project implements a simple JSON parser using Jackson's ObjectMapper in Java. It also includes an Ant build file for easy compilation and execution, as well as a GitHub Actions workflow for continuous integration.
+This project implements a simple calculator application and a JSON parser using Maven as the build system. It includes a basic calculator functionality and JSON parsing capabilities using Jackson's ObjectMapper.
 
 ## Project Structure
 
-- `src/main/java/JsonParser.java`: Contains the main JSON parsing logic
-- `build.xml`: Ant build file for compiling and running the project
-- `.github/workflows/build.yml`: GitHub Actions workflow file
+- `src/main/java/com/example/calculator/Calculator.java`: Contains the main calculator logic
+- `src/main/java/com/example/calculator/JsonParser.java`: Contains the JSON parsing logic
+- `pom.xml`: Maven configuration file for managing dependencies and building the project
 
 ## Requirements
 
-- Java 11 or higher
-- Apache Ant
-- Jackson library (add the JAR files to the `lib` directory)
+- Java 8 or higher
+- Apache Maven
 
 ## Building and Running
 
 To build the project:
 
 ```
-ant compile
+mvn clean package
 ```
 
-To run the project:
+To run the Calculator app:
 
 ```
-ant run
+java -cp target/calculator-app-1.0-SNAPSHOT.jar com.example.calculator.Calculator
 ```
 
-To create a JAR file:
+To run the JsonParser:
 
 ```
-ant jar
+java -cp target/calculator-app-1.0-SNAPSHOT.jar com.example.calculator.JsonParser
 ```
-
-## GitHub Actions
-
-The project includes a GitHub Actions workflow that automatically builds and runs the project on every push to the main branch or when a pull request is created.
 
 ## Usage
+
+### Calculator
+
+The `Calculator` class provides the following methods:
+
+- `add(double a, double b)`: Adds two numbers
+- `subtract(double a, double b)`: Subtracts the second number from the first
+- `multiply(double a, double b)`: Multiplies two numbers
+- `divide(double a, double b)`: Divides the first number by the second
+
+Example usage can be found in the `main` method of the `Calculator` class.
+
+### JsonParser
 
 The `JsonParser` class provides the following methods:
 
@@ -47,3 +55,11 @@ The `JsonParser` class provides the following methods:
 - `toJson(Object obj)`: Converts an object to a JSON string
 
 Example usage can be found in the `main` method of the `JsonParser` class.
+
+## Dependencies
+
+The project uses the following external dependency:
+
+- Jackson Databind: For JSON parsing and object mapping
+
+The dependency is managed by Maven and will be automatically downloaded when building the project.
